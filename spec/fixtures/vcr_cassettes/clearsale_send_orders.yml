@@ -1,0 +1,76 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: http://homologacao.clearsale.com.br:80/Integracaov2/Service.asmx
+    body: <?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.clearsale.com.br/integration"
+      xmlns:soap="http://www.w3.org/2003/05/soap-envelope"><soap:Body><int:SendOrders><int:xml>&lt;ClearSale&gt;&lt;Orders&gt;&lt;Order&gt;&lt;ID&gt;TS1234&lt;/ID&gt;&lt;Date&gt;2012-04-11T20:36:11&lt;/Date&gt;&lt;Email&gt;petergriffin@abc.com&lt;/Email&gt;&lt;TotalItens&gt;25.0&lt;/TotalItens&gt;&lt;TotalOrder&gt;20.0&lt;/TotalOrder&gt;&lt;QtyInstallments&gt;3&lt;/QtyInstallments&gt;&lt;QtyItems&gt;3&lt;/QtyItems&gt;&lt;IP&gt;127.0.0.1&lt;/IP&gt;&lt;CollectionData&gt;&lt;ID&gt;8888&lt;/ID&gt;&lt;Type&gt;1&lt;/Type&gt;&lt;LegalDocument1&gt;24878346337&lt;/LegalDocument1&gt;&lt;Name&gt;Peter
+      Löwenbräu Griffin&lt;/Name&gt;&lt;BirthDate&gt;1972-04-11T20:36:11&lt;/BirthDate&gt;&lt;Email&gt;petergriffin@abc.com&lt;/Email&gt;&lt;Genre&gt;m&lt;/Genre&gt;&lt;Address&gt;&lt;Street&gt;Bla
+      St&lt;/Street&gt;&lt;Number&gt;123&lt;/Number&gt;&lt;Comp&gt;&lt;/Comp&gt;&lt;County&gt;Rhode
+      Island&lt;/County&gt;&lt;City&gt;Mayland&lt;/City&gt;&lt;State&gt;Maryland&lt;/State&gt;&lt;ZipCode&gt;00100-011&lt;/ZipCode&gt;&lt;/Address&gt;&lt;Phones&gt;&lt;Phone&gt;&lt;Type&gt;0&lt;/Type&gt;&lt;DDD&gt;11&lt;/DDD&gt;&lt;Number&gt;80011002&lt;/Number&gt;&lt;/Phone&gt;&lt;/Phones&gt;&lt;/CollectionData&gt;&lt;ShippingData&gt;&lt;ID&gt;8888&lt;/ID&gt;&lt;Type&gt;1&lt;/Type&gt;&lt;LegalDocument1&gt;24878346337&lt;/LegalDocument1&gt;&lt;Name&gt;Peter
+      Löwenbräu Griffin&lt;/Name&gt;&lt;BirthDate&gt;1972-04-11T20:36:11&lt;/BirthDate&gt;&lt;Email&gt;petergriffin@abc.com&lt;/Email&gt;&lt;Genre&gt;m&lt;/Genre&gt;&lt;Address&gt;&lt;Street&gt;Bla
+      St&lt;/Street&gt;&lt;Number&gt;123&lt;/Number&gt;&lt;Comp&gt;&lt;/Comp&gt;&lt;County&gt;Rhode
+      Island&lt;/County&gt;&lt;City&gt;Mayland&lt;/City&gt;&lt;State&gt;Maryland&lt;/State&gt;&lt;ZipCode&gt;00100-011&lt;/ZipCode&gt;&lt;/Address&gt;&lt;Phones&gt;&lt;Phone&gt;&lt;Type&gt;0&lt;/Type&gt;&lt;DDD&gt;11&lt;/DDD&gt;&lt;Number&gt;80011002&lt;/Number&gt;&lt;/Phone&gt;&lt;/Phones&gt;&lt;/ShippingData&gt;&lt;Payments&gt;&lt;Payment&gt;&lt;Date&gt;2012-04-11T20:36:09&lt;/Date&gt;&lt;Amount&gt;20.0&lt;/Amount&gt;&lt;PaymentTypeID&gt;1&lt;/PaymentTypeID&gt;&lt;QtyInstallments&gt;3&lt;/QtyInstallments&gt;&lt;CardNumber&gt;2222&lt;/CardNumber&gt;&lt;CardBin&gt;1234432&lt;/CardBin&gt;&lt;CardType&gt;3&lt;/CardType&gt;&lt;CardExpirationDate&gt;05/2012&lt;/CardExpirationDate&gt;&lt;Name&gt;Peter
+      Löwenbräu Griffin&lt;/Name&gt;&lt;LegalDocument&gt;24878346337&lt;/LegalDocument&gt;&lt;Address&gt;&lt;Street&gt;Bla
+      St&lt;/Street&gt;&lt;Number&gt;123&lt;/Number&gt;&lt;Comp&gt;&lt;/Comp&gt;&lt;County&gt;Rhode
+      Island&lt;/County&gt;&lt;City&gt;Mayland&lt;/City&gt;&lt;State&gt;Maryland&lt;/State&gt;&lt;ZipCode&gt;00100-011&lt;/ZipCode&gt;&lt;/Address&gt;&lt;/Payment&gt;&lt;/Payments&gt;&lt;Items&gt;&lt;Item&gt;&lt;ID&gt;5555&lt;/ID&gt;&lt;Name&gt;Pogobol&lt;/Name&gt;&lt;ItemValue&gt;5.0&lt;/ItemValue&gt;&lt;Qty&gt;2&lt;/Qty&gt;&lt;CategoryID&gt;7777&lt;/CategoryID&gt;&lt;CategoryName&gt;Disney&lt;/CategoryName&gt;&lt;/Item&gt;&lt;Item&gt;&lt;ID&gt;5555&lt;/ID&gt;&lt;Name&gt;Pogobol&lt;/Name&gt;&lt;ItemValue&gt;5.0&lt;/ItemValue&gt;&lt;Qty&gt;2&lt;/Qty&gt;&lt;CategoryID&gt;7777&lt;/CategoryID&gt;&lt;CategoryName&gt;Disney&lt;/CategoryName&gt;&lt;/Item&gt;&lt;/Items&gt;&lt;/Order&gt;&lt;/Orders&gt;&lt;/ClearSale&gt;</int:xml><int:entityCode>0E6F0C82-FC05-4AA7-86D4-EBBFC0FDC41A</int:entityCode></int:SendOrders></soap:Body></soap:Envelope>
+    headers:
+      soapaction:
+      - http://www.clearsale.com.br/integration/SendOrders
+      content-type:
+      - text/xml;charset=UTF-8
+      content-length:
+      - '3580'
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: !binary |-
+        T0s=
+    headers:
+      !binary "ZGF0ZQ==":
+      - !binary |-
+        V2VkLCAxMSBBcHIgMjAxMiAyMDozNjoxNSBHTVQ=
+      !binary "c2VydmVy":
+      - !binary |-
+        TWljcm9zb2Z0LUlJUy82LjA=
+      !binary "eC1wb3dlcmVkLWJ5":
+      - !binary |-
+        QVNQLk5FVA==
+      !binary "eC1hc3BuZXQtdmVyc2lvbg==":
+      - !binary |-
+        Mi4wLjUwNzI3
+      !binary "c2V0LWNvb2tpZQ==":
+      - !binary |-
+        QVNQLk5FVF9TZXNzaW9uSWQ9aXkyNG4wNTV1NXVrM3hpMDJtZ3Bwd25sOyBw
+        YXRoPS87IEh0dHBPbmx5
+      !binary "Y2FjaGUtY29udHJvbA==":
+      - !binary |-
+        cHJpdmF0ZSwgbWF4LWFnZT0w
+      !binary "Y29udGVudC10eXBl":
+      - !binary |-
+        YXBwbGljYXRpb24vc29hcCt4bWw7IGNoYXJzZXQ9dXRmLTg=
+      !binary "Y29udGVudC1sZW5ndGg=":
+      - !binary |-
+        ODE4
+    body: !binary |-
+      PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c29hcDpF
+      bnZlbG9wZSB4bWxuczpzb2FwPSJodHRwOi8vd3d3LnczLm9yZy8yMDAzLzA1
+      L3NvYXAtZW52ZWxvcGUiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcv
+      MjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3
+      dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiPjxzb2FwOkJvZHk+PFNlbmRPcmRl
+      cnNSZXNwb25zZSB4bWxucz0iaHR0cDovL3d3dy5jbGVhcnNhbGUuY29tLmJy
+      L2ludGVncmF0aW9uIj48U2VuZE9yZGVyc1Jlc3VsdD4mbHQ7P3htbCB2ZXJz
+      aW9uPSIxLjAiIGVuY29kaW5nPSJ1dGYtMTYiPyZndDsNCiZsdDtQYWNrYWdl
+      U3RhdHVzJmd0Ow0KICAmbHQ7VHJhbnNhY3Rpb25JRCZndDtiMTg0NjQ0Zi1m
+      YmI1LTRjNWQtYTA0Zi1iZDE1NjRkZGYyYTgmbHQ7L1RyYW5zYWN0aW9uSUQm
+      Z3Q7DQogICZsdDtTdGF0dXNDb2RlJmd0OzAwJmx0Oy9TdGF0dXNDb2RlJmd0
+      Ow0KICAmbHQ7TWVzc2FnZSZndDtPSyZsdDsvTWVzc2FnZSZndDsNCiAgJmx0
+      O09yZGVycyZndDsNCiAgICAmbHQ7T3JkZXImZ3Q7DQogICAgICAmbHQ7SUQm
+      Z3Q7VFMxMjM0Jmx0Oy9JRCZndDsNCiAgICAgICZsdDtTdGF0dXMmZ3Q7QU1B
+      Jmx0Oy9TdGF0dXMmZ3Q7DQogICAgICAmbHQ7U2NvcmUmZ3Q7MjEuMTEwMCZs
+      dDsvU2NvcmUmZ3Q7DQogICAgJmx0Oy9PcmRlciZndDsNCiAgJmx0Oy9PcmRl
+      cnMmZ3Q7DQombHQ7L1BhY2thZ2VTdGF0dXMmZ3Q7PC9TZW5kT3JkZXJzUmVz
+      dWx0PjwvU2VuZE9yZGVyc1Jlc3BvbnNlPjwvc29hcDpCb2R5Pjwvc29hcDpF
+      bnZlbG9wZT4=
+    http_version: '1.1'
