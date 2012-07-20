@@ -34,6 +34,14 @@ module Clearsale
       end
     end
 
+    def approved?
+      @status == :automatic_approval || @status == :manual_approval
+    end
+
+    def rejected?
+      @status == :rejected_without_suspicion || @status == :fraud || @status == :manual_rejection
+    end
+
     def manual_analysis?
       @status == :manual_analysis
     end
