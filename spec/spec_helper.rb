@@ -3,6 +3,7 @@ require 'bundler'
 Bundler.setup(:default)
 require 'clearsale'
 require 'vcr'
+require 'savon'
 
 HTTPI.log = false
 
