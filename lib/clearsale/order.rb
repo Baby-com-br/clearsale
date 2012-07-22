@@ -113,8 +113,8 @@ module Clearsale
         b.tag!('Name', order_item.product.name)
         b.tag!('ItemValue', order_item.price)
         b.tag!('Qty', order_item.quantity)
-        b.tag!('CategoryID', order_item.product.category.id)
-        b.tag!('CategoryName', order_item.product.category.name)
+        b.tag!('CategoryID', order_item.product.category.id) if order_item.product.category.try(:id).present?
+        b.tag!('CategoryName', order_item.product.category.name) if order_item.product.category.try(:name).present?
       end
     end
   end
