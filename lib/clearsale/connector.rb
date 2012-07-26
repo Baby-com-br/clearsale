@@ -12,7 +12,7 @@ module Clearsale
       :production => 'https://www.clearsale.com.br/integracaov2/service.asmx'
     }
 
-    def self.build(env = ENV['RAILS_ENV'])
+    def self.build(env = ENV['CLEARSALE_ENV'])
       if env == "production"
         new(URLs[:production])
       else

@@ -38,4 +38,32 @@ describe 'Risk Analysis with ClearSale' do
       end
     end
   end
+
+  require 'webmock/rspec'
+
+  describe "setting the environment" do
+    context "when CLEARSALE_ENV is production" do
+      it "should access production url" do
+        VCR.use_cassette('clearsale_get_order_status_production') do
+          Clearsale::Analysis.clear_connector
+          ENV["CLEARSALE_ENV"] = 'production'
+          Clearsale::Analysis.get_order_status('1234')
+
+          a_request(:post, "https://www.clearsale.com.br/integracaov2/service.asmx").should have_been_made
+        end
+      end
+    end
+
+    context "when CLEARSALE_ENV isn't production" do
+      it "should access production url" do
+        VCR.use_cassette('clearsale_get_order_status') do
+          Clearsale::Analysis.clear_connector
+          ENV["CLEARSALE_ENV"] = 'any'
+          Clearsale::Analysis.get_order_status('1234')
+
+          a_request(:post, "http://homologacao.clearsale.com.br/Integracaov2/Service.asmx").should have_been_made
+        end
+      end
+    end
+  end
 end
