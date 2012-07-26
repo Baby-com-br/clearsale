@@ -1,6 +1,7 @@
 # encoding: utf-8
 require 'spec_helper'
 require 'clearsale'
+require 'webmock/rspec'
 
 describe 'Risk Analysis with ClearSale' do
   describe 'sending orders' do
@@ -38,8 +39,6 @@ describe 'Risk Analysis with ClearSale' do
       end
     end
   end
-
-  require 'webmock/rspec'
 
   describe "setting the environment" do
     context "when CLEARSALE_ENV is production" do
