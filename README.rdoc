@@ -25,13 +25,40 @@ Execute
       :state => 'Maryland',
       :postal_code => '00100-011'
     },
+    :shipping_address => {
+      :street_name => 'Bla St',
+      :number => '123',
+      :complement => '',
+      :neighborhood => 'Rhode Island',
+      :city => 'Mayland',
+      :state => 'Maryland',
+      :postal_code => '00100-011'
+    },
     :installments => 3,
     :total_items => 20.00,
     :total_order => 25.00,
     :items_count => 3,
     :created_at => Time.current,
-    :order_items => [{ :product => product, :price => 5.00, :quantity => 2, :category => { :id => 777, :name => 'Disney' } },
-                    { :product => product, :price => 5.00, :quantity => 2, :category => { :id => 777, :name => 'Disney' } }],
+    :order_items => [
+       {
+          :product => {
+           :id => 5555,
+           :name => 'Pogobol',
+           :category => { :id => 7777, :name => 'Disney' }
+           },
+         :price => 5.00,
+         :quantity => 2,
+       },
+       {
+          :product => {
+           :id => 5555,
+           :name => 'Pogobol',
+           :category => { :id => 7777, :name => 'Disney' }
+           },
+         :price => 5.00,
+         :quantity => 2,
+       },
+    ],
   }
 
   payment = {

@@ -16,9 +16,21 @@ def item1
   }
 end
 
-def address
+def billing_address
   {
-    :street_name => 'Bla St',
+    :street_name => 'Billing Street',
+    :number => '123',
+    :complement => '',
+    :neighborhood => 'Rhode Island',
+    :city => 'Mayland',
+    :state => 'Maryland',
+    :postal_code => '00100-011'
+  }
+end
+
+def shipping_address
+  {
+    :street_name => 'Shipping Street',
     :number => '123',
     :complement => '',
     :neighborhood => 'Rhode Island',
@@ -45,7 +57,8 @@ def order
   {
     :id => 1234,
     :paid_at => 2.seconds.ago,
-    :billing_address => address,
+    :billing_address => billing_address,
+    :shipping_address => shipping_address,
     :installments => 3,
     :total_items => 20.00,
     :total_order => 25.00,

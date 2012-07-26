@@ -17,6 +17,7 @@ module Clearsale
           end
         end
       end
+      builder
     end
 
     def self.build_order(builder, order, payment, user)
@@ -32,7 +33,7 @@ module Clearsale
         build_user_data(b, user, order.billing_address)
       end
       builder.tag!('ShippingData') do |b|
-        build_user_data(b, user, order.billing_address)
+        build_user_data(b, user, order.shipping_address)
       end
 
       builder.tag!('Payments') do |b|
@@ -96,7 +97,7 @@ module Clearsale
 
         b.tag!('QtyInstallments', order.installments)
 
-        b.tag!('CardNumber', payment.card_number[-4..-1])
+        b.tag!('CardNumber', payment.card_number)
         b.tag!('CardBin', payment.card_number[0..6])
         b.tag!('CardType', CARD_TYPE_MAP.fetch(payment.acquirer, 4)) # Failover is 'outros'
         b.tag!('CardExpirationDate', payment.card_expiration)
