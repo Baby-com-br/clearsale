@@ -10,14 +10,14 @@ module Clearsale
     }
     def self.to_xml(order, payment, user)
       builder = Builder::XmlMarkup.new
-      builder.tag!("ClearSale") do |b|
+      xml = builder.tag!("ClearSale") do |b|
         b.tag!('Orders') do |b|
           b.tag!('Order') do |b|
             build_order(b, order, payment, user)
           end
         end
-      end
-      builder
+      end.to_s
+      xml
     end
 
     def self.build_order(builder, order, payment, user)

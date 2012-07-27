@@ -71,6 +71,7 @@ GEM
       nori (~> 1.1.0)
       wasabi (~> 2.5.0)
     thor (0.15.4)
+    timecop (0.4.1)
     vcr (1.11.3)
     wasabi (2.5.0)
       httpi (~> 1.0)
@@ -92,5 +93,6 @@ DEPENDENCIES
   i18n
   rake
   rspec
+  timecop
   vcr (~> 1.11.3)
   webmock (~> 1.7.0)
