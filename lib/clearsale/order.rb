@@ -98,7 +98,7 @@ module Clearsale
         b.tag!('QtyInstallments', order.installments)
 
         b.tag!('CardNumber', payment.card_number)
-        b.tag!('CardBin', payment.card_number[0..6])
+        b.tag!('CardBin', payment.card_number[0..5])
         b.tag!('CardType', CARD_TYPE_MAP.fetch(payment.acquirer, 4)) # Failover is 'outros'
         b.tag!('CardExpirationDate', payment.card_expiration)
         b.tag!('Name', payment.customer_name)
