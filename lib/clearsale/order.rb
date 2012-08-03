@@ -52,7 +52,7 @@ module Clearsale
       builder.tag!('Type', 1) # Pessoa Física
       builder.tag!('LegalDocument1', user.cpf.gsub(/[\.\-]*/, '').strip)
       builder.tag!('Name', user.full_name)
-      builder.tag!('BirthDate', user.birthdate.to_time.strftime("%Y-%m-%dT%H:%M:%S"))
+      builder.tag!('BirthDate', user.birthdate.to_time.strftime("%Y-%m-%dT%H:%M:%S")) if user.birthdate.present?
       builder.tag!('Email', user.email)
       builder.tag!('Genre', user.gender.downcase)
       build_address(builder, billing_address)

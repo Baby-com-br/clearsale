@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    clearsale (0.0.1)
+    clearsale (0.1.0)
       builder
       savon
 

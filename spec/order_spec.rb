@@ -28,6 +28,18 @@ module Clearsale
           described_class.to_xml(_order, _payment, _user).should include "<CardType>#{Clearsale::Order::CARD_TYPE_MAP[:amex]}</CardType>"
         end
       end
+
+      context "when birthdate is empty" do
+        it "should not send birthdate" do
+          _user.birthdate = nil
+          described_class.to_xml(_order, _payment, _user).should_not include "<BirthDate>"
+        end
+
+        it "should not send birthdate" do
+          _user.birthdate = nil
+          expect{ described_class.to_xml(_order, _payment, _user) }.to_not raise_error
+        end
+      end
     end
   end
 end
