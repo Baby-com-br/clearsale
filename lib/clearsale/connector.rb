@@ -8,16 +8,13 @@ module Clearsale
     NAMESPACE =  "http://www.clearsale.com.br/integration"
 
     URLs = {
-      :homolog    => 'http://homologacao.clearsale.com.br/Integracaov2/Service.asmx',
-      :production => 'https://www.clearsale.com.br/integracaov2/service.asmx'
+      "homolog"    => 'http://homologacao.clearsale.com.br/Integracaov2/Service.asmx',
+      "production" => 'https://www.clearsale.com.br/integracaov2/service.asmx'
     }
 
     def self.build(env = ENV['CLEARSALE_ENV'])
-      if env == "production"
-        new(URLs[:production])
-      else
-        new(URLs[:homolog])
-      end
+      url = ENV["CLEARSALE_URL"] || URLs[env] || URLs["homolog"]
+      new url
     end
 
     def initialize(endpoint_url)
