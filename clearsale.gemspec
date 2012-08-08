@@ -31,4 +31,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "i18n"
   s.add_development_dependency "curb"
   s.add_development_dependency "timecop"
+  s.add_development_dependency "psych"
 end
