@@ -8,4 +8,5 @@ module Clearsale
   autoload :OrderResponse, 'clearsale/order_response'
   autoload :Connector,     'clearsale/connector'
   autoload :Analysis,      'clearsale/analysis'
+  autoload :LoggerFormatterFilter, 'clearsale/logger_formatter_filter'
 end
