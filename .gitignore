@@ -1,3 +1,5 @@
 *.sw*
 tags
 *.gem
+bin
+.bundle
