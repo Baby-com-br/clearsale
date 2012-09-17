@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    clearsale (0.1.2)
+    clearsale (0.1.3)
       builder
       savon
 
@@ -15,7 +15,7 @@ GEM
     akami (1.2.0)
       gyoku (>= 0.4.0)
       nokogiri (>= 1.4.0)
-    builder (3.0.0)
+    builder (3.0.3)
     columnize (0.3.6)
     crack (0.3.1)
     curb (0.8.1)
@@ -74,7 +74,7 @@ GEM
     thor (0.15.4)
     timecop (0.4.1)
     vcr (1.11.3)
-    wasabi (2.5.0)
+    wasabi (2.5.1)
       httpi (~> 1.0)
       nokogiri (>= 1.4.0)
     webmock (1.7.10)
