@@ -14,14 +14,16 @@ module Clearsale
 
     def self.build(env = ENV['CLEARSALE_ENV'])
       url = ENV["CLEARSALE_URL"] || URLs[env] || URLs["homolog"]
-      new url
+      proxy = ENV['CLEARSALE_PROXY']
+      new url, proxy
     end
 
-    def initialize(endpoint_url)
+    def initialize(endpoint_url, proxy=nil)
       @token = ENV['CLEARSALE_ENTITYCODE']
-      @client = Savon::Client.new do |wsdl|
+      @client = Savon::Client.new do |wsdl, http|
         wsdl.endpoint = endpoint_url
         wsdl.namespace = NAMESPACE
+        http.proxy = proxy if proxy
       end
     end
 
