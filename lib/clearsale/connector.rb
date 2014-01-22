@@ -1,8 +1,6 @@
 require 'savon'
 require 'nori'
 
-Nori.parser = :nokogiri
-
 module Clearsale
   class Connector
     NAMESPACE =  "http://www.clearsale.com.br/integration"
@@ -20,30 +18,27 @@ module Clearsale
 
     def initialize(endpoint_url, proxy=nil)
       @token = ENV['CLEARSALE_ENTITYCODE']
-      @client = Savon::Client.new do |wsdl, http|
-        wsdl.endpoint = endpoint_url
-        wsdl.namespace = NAMESPACE
-        http.proxy = proxy if proxy
-      end
+
+      namespaces = {
+          'xmlns:soap' => "http://www.w3.org/2003/05/soap-envelope",
+          'xmlns:xsd'  => "http://www.w3.org/2001/XMLSchema" ,
+          'xmlns:xsi'  => "http://www.w3.org/2001/XMLSchema-instance" ,
+          'xmlns:int'  => "http://www.clearsale.com.br/integration",
+      }
+
+      savon_options = {:endpoint => endpoint_url, :namespace => NAMESPACE,
+                       :namespaces => namespaces, :log => false,
+                       :convert_request_keys_to => :snakecase }
+
+      savon_options[:proxy] = proxy if proxy
+      @client = Savon.client(savon_options)
     end
 
     def do_request(method, request)
       namespaced_request = append_namespace('int', request)
       arguments = namespaced_request.merge({'int:entityCode' => @token})
 
-      response = @client.request(:int, method) do |soap, _, http, _|
-        soap.namespaces = {
-          'xmlns:soap' => "http://www.w3.org/2003/05/soap-envelope",
-          'xmlns:xsd'  => "http://www.w3.org/2001/XMLSchema" ,
-          'xmlns:xsi'  => "http://www.w3.org/2001/XMLSchema-instance" ,
-          'xmlns:int'  => "http://www.clearsale.com.br/integration",
-        }
-
-        soap.env_namespace = :soap
-
-        soap.body = arguments
-        http.headers['SOAPAction'] = "#{NAMESPACE}/#{method}"
-      end
+      response = @client.call(method, :message => arguments, :soap_header => {'SOAPAction' => "#{NAMESPACE}/#{method}"})
 
       extract_response_xml(method, response.to_hash)
     end
@@ -52,7 +47,7 @@ module Clearsale
       results = response.fetch(:"#{method.snakecase}_response", {})
       response_xml = results.fetch(:"#{method.snakecase}_result", {}).to_s
 
-      Nori.parse(response_xml.gsub(/^<\?xml.*\?>/, ''))
+      Nori.new(:parser => :nokogiri, :convert_tags_to => lambda { |tag| tag.snakecase.to_sym }).parse(response_xml.gsub(/^<\?xml.*\?>/, ''))
     end
 
     def append_namespace(namespace, hash)
