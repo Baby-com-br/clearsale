@@ -9,21 +9,48 @@ describe Clearsale::LoggerFormatterFilter do
   let(:order_xml)          { File.read('./spec/fixtures/clearsale.xml').chomp }
   let(:filtered_order_xml) { File.read('./spec/fixtures/filtered_clearsale.xml').chomp }
 
-  before do
-    described_class.tags_to_filter = %w(CardNumber CardBin)
-    logger.formatter = described_class.new_instance do |severity, datetime, progname, filtered_msg|
-      "#{severity} #{filtered_msg}"
-    end
-  end
-
   after do
     tmp_file.close
   end
 
-  it "filters the configured tag names" do
-    logger.info(order_xml)
-    tmp_file.rewind
-    tmp_file.read.should == "INFO #{filtered_order_xml}"
+  context "Initialize using tags and block" do
+    before do
+      logger.formatter = described_class.new(%w(CardNumber CardBin)) do |severity, datetime, progname, filtered_msg|
+        "#{severity} #{filtered_msg}"
+      end
+    end
+
+    it "filters the configured tag names using block" do
+      logger.info(order_xml)
+      tmp_file.rewind
+      tmp_file.read.should == "INFO #{filtered_order_xml}"
+    end
+  end
+
+  context "Initialize without block" do
+    before do
+      logger.formatter = described_class.new(%w(CardNumber CardBin))
+    end
+
+    it "filters the configured tag names" do
+      logger.info(order_xml)
+      tmp_file.rewind
+      tmp_file.read.end_with?(filtered_order_xml).should be_true
+    end
+  end
+
+  context "Initialize without tags" do
+    before do
+      logger.formatter = described_class.new do |severity, datetime, progname, filtered_msg|
+        "#{severity} #{filtered_msg}"
+      end
+    end
+
+    it "filters the configured tag names" do
+      logger.info(order_xml)
+      tmp_file.rewind
+      tmp_file.read.should == "INFO #{order_xml}"
+    end
   end
 end
 
