@@ -27,10 +27,12 @@ module Clearsale
       }
 
       savon_options = {:endpoint => endpoint_url, :namespace => NAMESPACE,
-                       :namespaces => namespaces, :log => false,
-                       :convert_request_keys_to => :snakecase }
+                       :namespaces => namespaces, :convert_request_keys_to => :snakecase }
 
-      savon_options[:proxy] = proxy if proxy
+      savon_options[:proxy]  = proxy if proxy
+      savon_options[:log]    = Clearsale::Config.log
+      savon_options[:logger] = Clearsale::Config.logger
+
       @client = Savon.client(savon_options)
     end
 
