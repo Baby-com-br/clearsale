@@ -40,7 +40,7 @@ module Clearsale
       namespaced_request = append_namespace('int', request)
       arguments = namespaced_request.merge({'int:entityCode' => @token})
 
-      response = @client.call(method, :message => arguments, :soap_header => {'SOAPAction' => "#{NAMESPACE}/#{method}"})
+      response = @client.call(method, :message => arguments, :soap_action => "#{NAMESPACE}/#{method}")
 
       extract_response_xml(method, response.to_hash)
     end
