@@ -17,11 +17,11 @@
       Island&lt;/County&gt;&lt;City&gt;Mayland&lt;/City&gt;&lt;State&gt;Maryland&lt;/State&gt;&lt;ZipCode&gt;00100-011&lt;/ZipCode&gt;&lt;/Address&gt;&lt;/Payment&gt;&lt;/Payments&gt;&lt;Items&gt;&lt;Item&gt;&lt;ID&gt;5555&lt;/ID&gt;&lt;Name&gt;Pogobol&lt;/Name&gt;&lt;ItemValue&gt;5.0&lt;/ItemValue&gt;&lt;Qty&gt;2&lt;/Qty&gt;&lt;CategoryID&gt;7777&lt;/CategoryID&gt;&lt;CategoryName&gt;Disney&lt;/CategoryName&gt;&lt;/Item&gt;&lt;Item&gt;&lt;ID&gt;5555&lt;/ID&gt;&lt;Name&gt;Pogobol&lt;/Name&gt;&lt;ItemValue&gt;5.0&lt;/ItemValue&gt;&lt;Qty&gt;2&lt;/Qty&gt;&lt;CategoryID&gt;7777&lt;/CategoryID&gt;&lt;CategoryName&gt;Disney&lt;/CategoryName&gt;&lt;/Item&gt;&lt;/Items&gt;&lt;/Order&gt;&lt;/Orders&gt;&lt;/ClearSale&gt;</int:xml><int:entityCode>0E6F0C82-FC05-4AA7-86D4-EBBFC0FDC41A</int:entityCode></int:SendOrders></soap:Body></soap:Envelope>
     headers:
       soapaction:
-      - http://www.clearsale.com.br/integration/SendOrders
+      - '"http://www.clearsale.com.br/integration/SendOrders"'
       content-type:
       - text/xml;charset=UTF-8
       content-length:
-      - '3580'
+      - '3645'
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200

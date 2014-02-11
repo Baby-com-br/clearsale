@@ -8,11 +8,11 @@
       xmlns:soap="http://www.w3.org/2003/05/soap-envelope"><soap:Body><int:GetOrderStatus><int:orderID>TS1234</int:orderID><int:entityCode>0E6F0C82-FC05-4AA7-86D4-EBBFC0FDC41A</int:entityCode></int:GetOrderStatus></soap:Body></soap:Envelope>
     headers:
       soapaction:
-      - http://www.clearsale.com.br/integration/GetOrderStatus
+      - '"http://www.clearsale.com.br/integration/GetOrderStatus"'
       content-type:
       - text/xml;charset=UTF-8
       content-length:
-      - '439'
+      - '505'
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200
