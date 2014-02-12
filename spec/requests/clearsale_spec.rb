@@ -4,7 +4,8 @@ require 'clearsale'
 require 'webmock/rspec'
 
 describe 'Risk Analysis with ClearSale' do
-  let!(:vcs_params) { {:match_requests_on => [:headers]} }
+  let!(:vcs_params) { {:record => :none, :match_requests_on => [:method, :uri, :headers]} }
+
   describe 'sending orders' do
     it "returns the package response" do
       VCR.use_cassette('clearsale_send_orders', vcs_params) do
