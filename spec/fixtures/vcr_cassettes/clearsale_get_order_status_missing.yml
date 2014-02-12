@@ -12,7 +12,7 @@
       content-type:
       - text/xml;charset=UTF-8
       content-length:
-      - '547'
+      - '551'
   response: !ruby/struct:VCR::Response
     status: !ruby/struct:VCR::ResponseStatus
       code: 200

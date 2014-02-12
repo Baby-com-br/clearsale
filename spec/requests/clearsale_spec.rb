@@ -19,7 +19,6 @@ describe 'Risk Analysis with ClearSale' do
   end
 
   describe "updating order status" do
-    let!(:vcs_params) { {:match_requests_on => [:headers]} }
     context "existing order" do
       it "returns the package response" do
         VCR.use_cassette('clearsale_get_order_status', vcs_params) do
@@ -32,7 +31,6 @@ describe 'Risk Analysis with ClearSale' do
     end
 
     context "missing order" do
-      let!(:vcs_params) { {:match_requests_on => [:headers]} }
       it "returns the package response" do
         VCR.use_cassette('clearsale_get_order_status_missing', vcs_params) do
           order = double('Order', :id => 1234567890)
@@ -45,7 +43,6 @@ describe 'Risk Analysis with ClearSale' do
   end
 
   describe "setting the environment" do
-    let!(:vcs_params) { {:match_requests_on => [:headers]} }
     context "when CLEARSALE_ENV is production" do
       it "should access production url" do
         VCR.use_cassette('clearsale_get_order_status_production', vcs_params) do
@@ -59,7 +56,6 @@ describe 'Risk Analysis with ClearSale' do
     end
 
     context "when CLEARSALE_ENV isn't production" do
-      let!(:vcs_params) { {:match_requests_on => [:headers]} }
       it "should access production url" do
         VCR.use_cassette('clearsale_get_order_status', vcs_params) do
           Clearsale::Analysis.clear_connector
