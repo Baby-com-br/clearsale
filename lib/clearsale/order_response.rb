@@ -39,7 +39,11 @@ module Clearsale
     end
 
     def rejected?
-      @status == :rejected_without_suspicion || @status == :fraud || @status == :manual_rejection || @status == :cancelled
+      [:rejected_without_suspicion, :manual_rejection, :cancelled].include? @status
+    end
+
+    def fraud?
+      @status == :fraud
     end
 
     def manual_analysis?
