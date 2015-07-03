@@ -32,6 +32,8 @@ module Clearsale
       savon_options[:proxy]  = proxy if proxy
       savon_options[:log]    = Clearsale::Config.log
       savon_options[:logger] = Clearsale::Config.logger
+      savon_options[:read_timeout] = Clearsale::Config.read_timeout if Clearsale::Config.read_timeout.present?
+      savon_options[:open_timeout] = Clearsale::Config.open_timeout if Clearsale::Config.open_timeout.present?
 
       @client = Savon.client(savon_options)
     end
