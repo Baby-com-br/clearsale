@@ -55,7 +55,7 @@ end
 
 def order
   {
-    :id => 1234,
+    :id => 'AA22BB11',
     :paid_at => 2.seconds.ago,
     :billing_address => billing_address,
     :shipping_address => shipping_address,

@@ -3,4 +3,5 @@ tags
 *.gem
 bin
 .bundle
+.byebug_history
 Gemfile.lock

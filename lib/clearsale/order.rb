@@ -22,7 +22,7 @@ module Clearsale
 
     def self.build_order(builder, order, payment, user)
       builder.tag!('ID', order.id)
-      builder.tag!('Date', order.created_at.strftime("%Y-%m-%dT%H:%M:%S"))
+      builder.tag!('Date', order.created_at)
       builder.tag!('Email', user.email)
       builder.tag!('TotalItens', order.total_items)
       builder.tag!('TotalOrder', order.total_order)
@@ -89,7 +89,7 @@ module Clearsale
       builder.tag!('Payment') do |b|
         paid_at = order.paid_at || Time.current
 
-        b.tag!('Date', paid_at.strftime("%Y-%m-%dT%H:%M:%S"))
+        b.tag!('Date', paid_at)
         b.tag!('Amount', payment.amount)
 
         #is_credit_card
