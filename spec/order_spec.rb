@@ -8,9 +8,9 @@ module Clearsale
       Timecop.freeze Time.parse('2012-07-01 11:13')
     end
 
-    let(:_order) { Object.new.parse(order) }
-    let(:_payment) { Object.new.parse(payment) }
-    let(:_user) { Object.new.parse(user) }
+    let(:_order) { Object.parse(order) }
+    let(:_payment) { Object.parse(payment) }
+    let(:_user) { Object.parse(user) }
 
     describe ".to_xml" do
       it "converts the order to xml successfully" do
