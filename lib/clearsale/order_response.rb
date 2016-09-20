@@ -28,7 +28,7 @@ module Clearsale
       if response.blank?
         @status = :inexistent_order
       else
-        @order_id = response[:id].gsub(/[a-zA-Z]*/, '').to_i
+        @order_id = response[:id]
         @score    = response[:score].to_f
         @status   = STATUS_MAP[response[:status]]
       end

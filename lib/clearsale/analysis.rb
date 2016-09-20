@@ -5,9 +5,9 @@
     end
 
     def self.send_order(order_hash, payment_hash, user_hash)
-      order = Object.new(order_hash)
-      payment = Object.new(payment_hash)
-      user = Object.new(user_hash)
+      order = Object.parse(order_hash)
+      payment = Object.parse(payment_hash)
+      user = Object.parse(user_hash)
 
       order_xml = Clearsale::Order.to_xml(order, payment, user)
       request = {"xml" => order_xml}

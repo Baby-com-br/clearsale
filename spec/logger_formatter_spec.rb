@@ -23,7 +23,7 @@ describe Clearsale::LoggerFormatterFilter do
     it "filters the configured tag names using block" do
       logger.info(order_xml)
       tmp_file.rewind
-      tmp_file.read.should == "INFO #{filtered_order_xml}"
+      expect(tmp_file.read).to  eq("INFO #{filtered_order_xml}")
     end
   end
 
@@ -35,7 +35,7 @@ describe Clearsale::LoggerFormatterFilter do
     it "filters the configured tag names" do
       logger.info(order_xml)
       tmp_file.rewind
-      tmp_file.read.end_with?(filtered_order_xml).should be_true
+      expect(tmp_file.read.end_with?(filtered_order_xml)).to be(true)
     end
   end
 
@@ -49,7 +49,7 @@ describe Clearsale::LoggerFormatterFilter do
     it "filters the configured tag names" do
       logger.info(order_xml)
       tmp_file.rewind
-      tmp_file.read.should == "INFO #{order_xml}"
+      expect(tmp_file.read).to eq("INFO #{order_xml}")
     end
   end
 end

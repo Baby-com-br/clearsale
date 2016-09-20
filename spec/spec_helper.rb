@@ -9,11 +9,11 @@ HTTPI.log = false
 
 Dir["./spec/support/**/*.rb"].each {|f| require f}
 
-VCR.config do |c|
+VCR.configure do |c|
   c.cassette_library_dir     = File.expand_path('../../spec/fixtures/vcr_cassettes', __FILE__)
-  c.stub_with :webmock
-  c.default_cassette_options = { :record => :none }
-  c.allow_http_connections_when_no_cassette = false
+  c.hook_into :webmock
+  #c.default_cassette_options = { :record => :none }
+  #c.allow_http_connections_when_no_cassette = false
 end
 
 RSpec.configure do |config|

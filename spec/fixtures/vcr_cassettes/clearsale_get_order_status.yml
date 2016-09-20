@@ -1,59 +1,48 @@
 ---
-- !ruby/struct:VCR::HTTPInteraction
-  request: !ruby/struct:VCR::Request
-    method: :post
-    uri: http://homologacao.clearsale.com.br:80/Integracaov2/Service.asmx
-    body: <?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.clearsale.com.br/integration"
-      xmlns:soap="http://www.w3.org/2003/05/soap-envelope"><soap:Body><int:GetOrderStatus><int:orderID>TS1234</int:orderID><int:entityCode>0E6F0C82-FC05-4AA7-86D4-EBBFC0FDC41A</int:entityCode></int:GetOrderStatus></soap:Body></soap:Envelope>
+http_interactions:
+- request:
+    method: post
+    uri: http://homologacao.clearsale.com.br/Integracaov2/Service.asmx
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://www.clearsale.com.br/integration"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+        xmlns:int="http://www.clearsale.com.br/integration"><env:Body><wsdl:GetOrderStatus><int:orderID>AA22BB11</int:orderID><int:entityCode>0E6F0C82-FC05-4AA7-86D4-EBBFC0FDC41A</int:entityCode></wsdl:GetOrderStatus></env:Body></env:Envelope>
     headers:
-      soapaction:
+      Soapaction:
       - '"http://www.clearsale.com.br/integration/GetOrderStatus"'
-      content-type:
+      Content-Type:
       - text/xml;charset=UTF-8
-      content-length:
-      - '505'
-  response: !ruby/struct:VCR::Response
-    status: !ruby/struct:VCR::ResponseStatus
+      Content-Length:
+      - '546'
+  response:
+    status:
       code: 200
-      message: !binary |-
-        T0s=
+      message: OK
     headers:
-      !binary "ZGF0ZQ==":
-      - !binary |-
-        V2VkLCAxMSBBcHIgMjAxMiAyMDozODowMCBHTVQ=
-      !binary "c2VydmVy":
-      - !binary |-
-        TWljcm9zb2Z0LUlJUy82LjA=
-      !binary "eC1wb3dlcmVkLWJ5":
-      - !binary |-
-        QVNQLk5FVA==
-      !binary "eC1hc3BuZXQtdmVyc2lvbg==":
-      - !binary |-
-        Mi4wLjUwNzI3
-      !binary "Y2FjaGUtY29udHJvbA==":
-      - !binary |-
-        cHJpdmF0ZSwgbWF4LWFnZT0w
-      !binary "Y29udGVudC10eXBl":
-      - !binary |-
-        YXBwbGljYXRpb24vc29hcCt4bWw7IGNoYXJzZXQ9dXRmLTg=
-      !binary "Y29udGVudC1sZW5ndGg=":
-      - !binary |-
-        NjYz
-    body: !binary |-
-      PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c29hcDpF
-      bnZlbG9wZSB4bWxuczpzb2FwPSJodHRwOi8vd3d3LnczLm9yZy8yMDAzLzA1
-      L3NvYXAtZW52ZWxvcGUiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcv
-      MjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnhzZD0iaHR0cDovL3d3
-      dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiPjxzb2FwOkJvZHk+PEdldE9yZGVy
-      U3RhdHVzUmVzcG9uc2UgeG1sbnM9Imh0dHA6Ly93d3cuY2xlYXJzYWxlLmNv
-      bS5ici9pbnRlZ3JhdGlvbiI+PEdldE9yZGVyU3RhdHVzUmVzdWx0PiZsdDs/
-      eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9InV0Zi0xNiI/Jmd0Ow0KJmx0
-      O0NsZWFyU2FsZSZndDsNCiAgJmx0O09yZGVycyZndDsNCiAgICAmbHQ7T3Jk
-      ZXImZ3Q7DQogICAgICAmbHQ7SUQmZ3Q7VFMxMjM0Jmx0Oy9JRCZndDsNCiAg
-      ICAgICZsdDtTdGF0dXMmZ3Q7QU1BJmx0Oy9TdGF0dXMmZ3Q7DQogICAgICAm
-      bHQ7U2NvcmUmZ3Q7MjEuMTEwMCZsdDsvU2NvcmUmZ3Q7DQogICAgJmx0Oy9P
-      cmRlciZndDsNCiAgJmx0Oy9PcmRlcnMmZ3Q7DQombHQ7L0NsZWFyU2FsZSZn
-      dDs8L0dldE9yZGVyU3RhdHVzUmVzdWx0PjwvR2V0T3JkZXJTdGF0dXNSZXNw
-      b25zZT48L3NvYXA6Qm9keT48L3NvYXA6RW52ZWxvcGU+
-    http_version: '1.1'
+      Cache-Control:
+      - private, max-age=0
+      Content-Type:
+      - text/xml; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.5
+      X-Aspnet-Version:
+      - 2.0.50727
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Mon, 19 Sep 2016 19:14:41 GMT
+      Content-Length:
+      - '666'
+    body:
+      encoding: ASCII-8BIT
+      string: "<?xml version=\"1.0\" encoding=\"utf-8\"?><soap:Envelope xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><soap:Body><GetOrderStatusResponse
+        xmlns=\"http://www.clearsale.com.br/integration\"><GetOrderStatusResult>&lt;?xml
+        version=\"1.0\" encoding=\"utf-16\"?&gt;\r\n&lt;ClearSale&gt;\r\n  &lt;Orders&gt;\r\n
+        \   &lt;Order&gt;\r\n      &lt;ID&gt;AA22BB11&lt;/ID&gt;\r\n      &lt;Status&gt;AMA&lt;/Status&gt;\r\n
+        \     &lt;Score&gt;6.0400&lt;/Score&gt;\r\n    &lt;/Order&gt;\r\n  &lt;/Orders&gt;\r\n&lt;/ClearSale&gt;</GetOrderStatusResult></GetOrderStatusResponse></soap:Body></soap:Envelope>"
+    http_version: 
+  recorded_at: Sun, 01 Jul 2012 14:13:00 GMT
+recorded_with: VCR 3.0.3
